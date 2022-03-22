@@ -9,7 +9,7 @@ const navigation = createStackNavigator(
   {
     initialRouteName: "Images",
     defaultNavigationOptions: {
-      title: "Cloudy",
+      title: "Album",
     },
   }
 );
