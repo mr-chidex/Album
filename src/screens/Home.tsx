@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import SearchInput from "../components/SearchInput";
 import useResults from "../components/useResults";
 import ImageList from "../components/ImageList";
+import { ScrollView } from "react-native-gesture-handler";
 
 const Home: React.FC = () => {
   const [term, setTerm] = useState<string>("");
@@ -20,7 +21,7 @@ const Home: React.FC = () => {
 
       {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
 
-      <View style={styles.list}>
+      <ScrollView style={styles.list}>
         <ImageList photos={photos.slice(0, count)} title="Latest" />
         <ImageList
           photos={photos.slice(count, count * 2)}
@@ -30,7 +31,7 @@ const Home: React.FC = () => {
           photos={photos.slice(count * 2, count * 3)}
           title="Best RGB"
         />
-      </View>
+      </ScrollView>
     </View>
   );
 };
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 15,
     marginHorizontal: 10,
+    flex: 1,
   },
   error: {
     textAlign: "center",
