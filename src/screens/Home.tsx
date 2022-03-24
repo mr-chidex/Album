@@ -8,6 +8,7 @@ import ImageList from "../components/ImageList";
 const Home: React.FC = () => {
   const [term, setTerm] = useState<string>("");
   const { errorMessage, photos, total } = useResults();
+  const count = Math.ceil(total / 3);
 
   return (
     <View style={styles.container}>
@@ -20,9 +21,15 @@ const Home: React.FC = () => {
       {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
 
       <View style={styles.list}>
-        <ImageList photos={photos.slice(0, 10)} title="Latest" />
-        <ImageList photos={photos.slice(11, 20)} title="High Quality" />
-        <ImageList photos={photos.slice(21, 30)} title="Best RGB" />
+        <ImageList photos={photos.slice(0, count)} title="Latest" />
+        <ImageList
+          photos={photos.slice(count, count * 2)}
+          title="High Quality"
+        />
+        <ImageList
+          photos={photos.slice(count * 2, count * 3)}
+          title="Best RGB"
+        />
       </View>
     </View>
   );
