@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://dex-photos.herokuapp.com/api/v1",
+  baseURL: process.env.API_KEY,
   headers: {
     Authorization: `Bearer ${process.env.TOKEN}`,
   },
