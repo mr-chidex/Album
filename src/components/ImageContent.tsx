@@ -1,10 +1,27 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { Photos } from "../utils/types";
+import {
+  NavigationParams,
+  NavigationScreenProp,
+  withNavigation,
+} from "react-navigation";
 
-const ImageContent: React.FC<{ item: Photos }> = ({ item }) => {
+interface Props {
+  item: Photos;
+  navigation: NavigationScreenProp<any, NavigationParams>;
+}
+
+const ImageContent: React.FC<Props> = ({ item, navigation }) => {
   return (
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() =>
+        navigation.navigate("ImageDetails", {
+          itemId: item._id,
+        })
+      }
+    >
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={{ uri: item.url }} />
       </View>
@@ -34,4 +51,4 @@ const styles = StyleSheet.create({
     fontSize: 17,
   },
 });
-export default ImageContent;
+export default withNavigation(ImageContent);

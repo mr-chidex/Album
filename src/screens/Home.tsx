@@ -5,14 +5,12 @@ import { ScrollView } from "react-native-gesture-handler";
 import SearchInput from "../components/SearchInput";
 import useResults from "../components/useResults";
 import ImageList from "../components/ImageList";
-import { NavProps } from "../utils/types";
 
-const Home: React.FC<NavProps> = ({ navigation }) => {
+const Home: React.FC = () => {
   const [term, setTerm] = useState<string>("");
   const { errorMessage, photos, total, loading } = useResults();
 
   const count = Math.ceil(total / 3);
-  console.log(navigation);
   return (
     <View style={styles.container}>
       <SearchInput
