@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Image, Text, ScrollView } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
 
 import api from "../utils/api";
 import { NavProps, Photo } from "../utils/types";
+import Loader from "../components/Loader";
 
 type Props = NavProps;
 
@@ -42,9 +42,7 @@ const Details: React.FC<Props> = ({ navigation }) => {
       <Text style={styles.author}>Email: {photo?.author.email}</Text>
     </ScrollView>
   ) : (
-    <View style={styles.loading}>
-      <AntDesign name="loading1" size={40} />
-    </View>
+    <Loader />
   );
 };
 
@@ -82,11 +80,6 @@ const styles = StyleSheet.create({
   error: {
     textAlign: "center",
     color: "red",
-  },
-  loading: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
 

@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
-import { AntDesign } from "@expo/vector-icons";
 
 import SearchInput from "../components/SearchInput";
 import useResults from "../components/useResults";
 import ImageList from "../components/ImageList";
+import Loader from "../components/Loader";
 
 const Home: React.FC = () => {
   const [term, setTerm] = useState<string>("");
@@ -21,11 +21,7 @@ const Home: React.FC = () => {
       />
 
       {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
-      {loading && (
-        <View style={styles.loading}>
-          <AntDesign name="loading1" size={40} />
-        </View>
-      )}
+      {loading && <Loader />}
 
       {photos.length > 0 && (
         <ScrollView style={styles.list}>
@@ -58,10 +54,5 @@ const styles = StyleSheet.create({
   },
   list: {
     marginVertical: 20,
-  },
-  loading: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
