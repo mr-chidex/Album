@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import SearchInput from "../components/SearchInput";
 import useResults from "../components/useResults";
+import ImageList from "../components/ImageList";
 
 const Home: React.FC = () => {
   const [term, setTerm] = useState<string>("");
@@ -16,18 +17,11 @@ const Home: React.FC = () => {
         submitHandler={() => console.log("term was submitted")}
       />
       <Text>Home - Image Screen</Text>
-      {errorMessage && <Text>{errorMessage}</Text>}
-      <Text>{total}</Text>
+      {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
 
-      <FlatList
-        data={photos}
-        keyExtractor={(photo) => photo._id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.imageContainer}>
-            <Image style={styles.image} source={{ uri: item.url }} />
-          </View>
-        )}
-      />
+      <ImageList photos={photos.slice(0, 10)} title="Cost Effective" />
+      <ImageList photos={photos.slice(11, 20)} title="Bit Pricer" />
+      <ImageList photos={photos.slice(21, 30)} title="Big Spender" />
     </View>
   );
 };
@@ -38,14 +32,8 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 10,
   },
-  imageContainer: {
-    width: 100,
-    height: 100,
-    backgroundColor: "#ccc",
-    marginVertical: 10,
-  },
-  image: {
-    width: "100%",
-    height: 100,
+  error: {
+    textAlign: "center",
+    color: "red",
   },
 });

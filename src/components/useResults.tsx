@@ -1,12 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../utils/api";
-
-type Photos = {
-  _id: number;
-  name: string;
-  url: string;
-  author: string;
-}[];
+import { Photos } from "../utils/types";
 
 export default () => {
   const [errorMessage, setErrorMessage] = useState<boolean>(false);
@@ -18,7 +12,7 @@ export default () => {
         const { data } = await api.get("/images", {
           params: {
             _start: 0,
-            _limit: 10,
+            _limit: 30,
           },
         });
         setPhotos(data?.images);
