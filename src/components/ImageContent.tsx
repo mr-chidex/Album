@@ -1,11 +1,12 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import { Photos } from "../utils/types";
 import {
   NavigationParams,
   NavigationScreenProp,
   withNavigation,
 } from "react-navigation";
+
+import { Photos } from "../utils/types";
 
 interface Props {
   item: Photos;
