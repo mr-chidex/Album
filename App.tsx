@@ -10,6 +10,7 @@ const navigation = createStackNavigator(
     initialRouteName: "Images",
     defaultNavigationOptions: {
       title: "Album",
+      headerTitleAlign: "center",
     },
   }
 );

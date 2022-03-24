@@ -4,7 +4,7 @@ import { Photos } from "../utils/types";
 
 export default () => {
   const [errorMessage, setErrorMessage] = useState<boolean>(false);
-  const [photos, setPhotos] = useState<Photos>([]);
+  const [photos, setPhotos] = useState<Photos[]>([]);
 
   useEffect(() => {
     (async () => {

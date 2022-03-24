@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, FlatList } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 
 import SearchInput from "../components/SearchInput";

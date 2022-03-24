@@ -1,10 +1,11 @@
-import { FlatList, Image, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Photos } from "../utils/types";
+import ImageContent from "./ImageContent";
 
 interface Props {
   title: string;
-  photos: Photos;
+  photos: Photos[];
 }
 
 const ImageList: React.FC<Props> = ({ title, photos }) => {
@@ -17,17 +18,7 @@ const ImageList: React.FC<Props> = ({ title, photos }) => {
           horizontal
           showsHorizontalScrollIndicator={false}
           keyExtractor={(photo) => photo._id.toString()}
-          renderItem={({ item }) => (
-            <View style={styles.item}>
-              <View style={styles.imageContainer}>
-                <Image style={styles.image} source={{ uri: item.url }} />
-              </View>
-              <Text style={styles.itemName}>
-                {item.name.substring(0, 15)}{" "}
-                {item.name.length > 15 ? "..." : null}
-              </Text>
-            </View>
-          )}
+          renderItem={({ item }) => <ImageContent item={item} />}
         />
       </View>
     </View>
