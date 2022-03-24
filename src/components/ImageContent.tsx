@@ -1,17 +1,17 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { Photos } from "../utils/types";
 
 const ImageContent: React.FC<{ item: Photos }> = ({ item }) => {
   return (
-    <View style={styles.item}>
+    <TouchableOpacity style={styles.item}>
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={{ uri: item.url }} />
       </View>
       <Text style={styles.itemName}>
         {item.name.substring(0, 15)} {item.name.length > 15 ? "..." : null}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
