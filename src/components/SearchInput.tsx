@@ -34,17 +34,19 @@ export default SearchInput;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: "#f0eeee",
-    padding: 5,
-    marginHorizontal: 15,
+    backgroundColor: "#bbb",
+    padding: 8,
     borderRadius: 5,
   },
   textInput: {
     flex: 1,
     borderWidth: 0,
     fontSize: 18,
+    color: "#111",
+    fontWeight: "bold",
   },
   icon: {
     marginHorizontal: 5,
+    color: "#111",
   },
 });

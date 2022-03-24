@@ -9,7 +9,7 @@ interface Props {
 
 const ImageList: React.FC<Props> = ({ title, photos }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.list}>
         <FlatList
@@ -35,9 +35,12 @@ const ImageList: React.FC<Props> = ({ title, photos }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 10,
+  },
   title: {
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 18,
   },
   list: {
     marginVertical: 10,
@@ -57,6 +60,7 @@ const styles = StyleSheet.create({
   itemName: {
     textAlign: "center",
     fontWeight: "500",
+    fontSize: 17,
   },
 });
 

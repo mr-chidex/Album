@@ -16,12 +16,14 @@ const Home: React.FC = () => {
         onChangeTerm={(newTerm: string) => setTerm(newTerm)}
         submitHandler={() => console.log("term was submitted")}
       />
-      <Text>Home - Image Screen</Text>
+
       {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
 
-      <ImageList photos={photos.slice(0, 10)} title="Cost Effective" />
-      <ImageList photos={photos.slice(11, 20)} title="Bit Pricer" />
-      <ImageList photos={photos.slice(21, 30)} title="Big Spender" />
+      <View style={styles.list}>
+        <ImageList photos={photos.slice(0, 10)} title="Latest" />
+        <ImageList photos={photos.slice(11, 20)} title="High Quality" />
+        <ImageList photos={photos.slice(21, 30)} title="Best RGB" />
+      </View>
     </View>
   );
 };
@@ -30,10 +32,14 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 10,
+    marginVertical: 15,
+    marginHorizontal: 10,
   },
   error: {
     textAlign: "center",
     color: "red",
+  },
+  list: {
+    marginVertical: 20,
   },
 });
