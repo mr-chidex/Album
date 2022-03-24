@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Image, Text, ScrollView } from "react-native";
-import api from "../utils/api";
+import { AntDesign } from "@expo/vector-icons";
 
+import api from "../utils/api";
 import { NavProps, Photo } from "../utils/types";
 
 type Props = NavProps;
 
 const Details: React.FC<Props> = ({ navigation }) => {
-  const [photo, setPhoto] = useState<Photo>();
+  const [photo, setPhoto] = useState<Photo | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
   const ID = navigation.getParam("itemId") as string;
 
@@ -22,7 +23,7 @@ const Details: React.FC<Props> = ({ navigation }) => {
     })();
   }, []);
 
-  return (
+  return photo ? (
     <ScrollView style={styles.container}>
       {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
 
@@ -40,6 +41,10 @@ const Details: React.FC<Props> = ({ navigation }) => {
       </Text>
       <Text style={styles.author}>Email: {photo?.author.email}</Text>
     </ScrollView>
+  ) : (
+    <View style={styles.loading}>
+      <AntDesign name="loading1" size={40} />
+    </View>
   );
 };
 
@@ -77,6 +82,11 @@ const styles = StyleSheet.create({
   error: {
     textAlign: "center",
     color: "red",
+  },
+  loading: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 

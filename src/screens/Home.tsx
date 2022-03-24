@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
+import { AntDesign } from "@expo/vector-icons";
 
 import SearchInput from "../components/SearchInput";
 import useResults from "../components/useResults";
@@ -20,7 +21,11 @@ const Home: React.FC = () => {
       />
 
       {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
-      {loading && <Text style={styles.loading}>Loading...</Text>}
+      {loading && (
+        <View style={styles.loading}>
+          <AntDesign name="loading1" size={40} />
+        </View>
+      )}
 
       {photos.length > 0 && (
         <ScrollView style={styles.list}>
@@ -55,9 +60,8 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   loading: {
-    fontWeight: "bold",
-    fontSize: 18,
-    textAlign: "center",
-    marginVertical: 55,
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
