@@ -15,7 +15,7 @@ const Details: React.FC<Props> = ({ navigation }) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await api.get(`/images/${ID}`);
+        const { data } = await api.get<Photo>(`/images/${ID}`);
         setPhoto(data);
       } catch (error: any) {
         setErrorMessage(error.message);
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   author: {
     marginVertical: 10,
-    fontWeight: "bold",
+    fontWeight: "600",
     fontSize: 17,
     fontStyle: "italic",
   },

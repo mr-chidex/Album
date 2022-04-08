@@ -34,7 +34,7 @@ export default SearchInput;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: "#bbb",
+    backgroundColor: "#ccc",
     padding: 8,
     borderRadius: 5,
   },
