@@ -15,6 +15,7 @@ Photo App with React Native - Practice
 
   <img width="300" alt="png" src="./assets/1.png" />
   <img width="300" alt="png" src="./assets/2.png" />
+  
 ## Configure app
 
 - Create a file named `.env` in the project root directory
